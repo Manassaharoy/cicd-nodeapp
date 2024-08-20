@@ -14,10 +14,10 @@ app.get("/", (req, res) => {
   res.send("development branch!");
 });
 app.get("/2", (req, res) => {
-  res.send("2");
+  res.send("second updated");
 });
 app.get("/3", (req, res) => {
-  res.send("3");
+  res.send("3 updated");
 });
 
 app.listen(port, () => {
