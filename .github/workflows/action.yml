@@ -20,7 +20,7 @@ jobs:
 
           npm i
 
-          pm2 start npm --name "prod-cicd-nodeapp" -- start  >> /home/manas/logs/log.txt
+          pm2 restart prod-cicd-nodeapp || pm2 start npm --name "prod-cicd-nodeapp" -- start
 
           elif [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
 
@@ -28,6 +28,6 @@ jobs:
 
           npm i
 
-          pm2 start npm --name "dev-cicd-nodeapp" -- run dev >> /home/manas/logs/log.txt
+          pm2 restart dev-cicd-nodeapp || pm2 start npm --name "dev-cicd-nodeapp" -- run dev
 
           fi
