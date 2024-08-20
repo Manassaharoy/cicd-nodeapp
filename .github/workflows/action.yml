@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo "helloooooo"
-          echo "helloooooo"
+          echo "starting....." > /home/manas/logs/applog.txt
+          echo "started......" > /home/manas/logs/applog.txt
           npm i
-          echo "helloooooo"
+          echo "installed...." > /home/manas/logs/applog.txt
           npm start
