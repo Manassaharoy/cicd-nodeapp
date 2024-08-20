@@ -13,16 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          whoami >> /home/manas/logs/log.txt
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
             
           echo "brach: ${GITHUB_REF} is triggered" >> /home/manas/logs/log.txt
 
-          pm2 start ecosystem.config.js --env production
+          pm2 start ecosystem.config.js --env production >> /home/manas/logs/log.txt
 
           elif [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
 
           echo "brach: ${GITHUB_REF} is triggered" >> /home/manas/logs/log.txt
 
-          pm2 start ecosystem.config.js --env development
+          pm2 start ecosystem.config.js --env development >> /home/manas/logs/log.txt
 
           fi
