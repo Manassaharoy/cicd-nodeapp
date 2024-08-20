@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: ["dev", "main"]
+#   pull_request:
+#     branches: ["main"]
 
 jobs:
   build:
@@ -13,6 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo "starting....." >> /home/manas/logs/log.txt
-          echo "${GITHUB_REF}" >> /home/manas/logs/log.txt
-          echo "end....." >> /home/manas/logs/log.txt
+          if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
+            
+          echo "brach: ${GITHUB_REF} is triggered" >> /home/manas/logs/log.txt
+
+          pm2 start ecosystem.config.js --env production
+
+          elif [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+
+          echo "brach: ${GITHUB_REF} is triggered" >> /home/manas/logs/log.txt
+
+          pm2 start ecosystem.config.js --env development
+
+          fi
