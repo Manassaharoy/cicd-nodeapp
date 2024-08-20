@@ -14,7 +14,5 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           echo "starting....." >> /home/manas/logs/log.txt
-          echo "started......" >> /home/manas/logs/log.txt
-          npm i
-          echo "installed...." >> /home/manas/logs/log.txt
-          npm start
+          echo "${GITHUB_REF}" >> /home/manas/logs/log.txt
+          echo "end....." >> /home/manas/logs/log.txt
