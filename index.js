@@ -13,6 +13,9 @@ const port = process.env.PORT;
 app.get("/", (req, res) => {
   res.send("development branch!");
 });
+app.get("/2", (req, res) => {
+  res.send("2");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
